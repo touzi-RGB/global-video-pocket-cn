@@ -1,0 +1,73 @@
+[
+  {"id":"netflix","name":"Netflix","region":"全球","types":["电影","电视剧","综艺","纪录片","动漫","少儿"],"access":"订阅","url":"https://www.netflix.com/","description":"全球电影、剧集、综艺、纪录片和动漫平台。","availability":"需要账号；片库和字幕按地区变化"},
+  {"id":"hbo-max","name":"HBO Max","region":"全球","types":["电影","电视剧","纪录片"],"access":"订阅","url":"https://www.hbomax.com/","description":"HBO剧集、华纳电影、纪录片和原创节目。","availability":"需要账号；服务地区和片库不同"},
+  {"id":"disney-plus","name":"Disney+","region":"全球","types":["电影","电视剧","纪录片","少儿","动漫"],"access":"订阅","url":"https://www.disneyplus.com/","description":"Disney、Pixar、Marvel、Star Wars与国家地理内容。","availability":"需要账号；地区片库不同"},
+  {"id":"prime-video","name":"Prime Video","region":"全球","types":["电影","电视剧","综艺","纪录片"],"access":"订阅","url":"https://www.primevideo.com/","description":"Amazon原创、电影、剧集及频道订阅。","availability":"订阅、租赁和单片购买并存"},
+  {"id":"apple-tv","name":"Apple TV+","region":"全球","types":["电影","电视剧","纪录片","少儿"],"access":"订阅","url":"https://tv.apple.com/","description":"Apple原创剧集、电影、纪录片和少儿节目。","availability":"需要Apple账号；部分内容可租赁或购买"},
+  {"id":"youtube-entertainment","name":"YouTube 娱乐","region":"全球","types":["电影","电视剧","综艺","纪录片","动漫","少儿","音乐","电视直播"],"access":"部分免费","url":"https://www.youtube.com/","description":"官方频道、节目片段、完整节目、直播和影视租赁。","availability":"免费、广告、会员和租赁内容并存"},
+
+  {"id":"hulu","name":"Hulu","region":"美国","types":["电影","电视剧","综艺","电视直播"],"access":"订阅","url":"https://www.hulu.com/","description":"美国剧集、电影、原创节目和直播电视。","availability":"主要面向美国，需要账号"},
+  {"id":"peacock","name":"Peacock","region":"美国","types":["电影","电视剧","综艺","电视直播","体育"],"access":"订阅","url":"https://www.peacocktv.com/","description":"NBCUniversal剧集、电影、真人秀、体育和直播频道。","availability":"主要面向美国；部分套餐含广告"},
+  {"id":"paramount-plus","name":"Paramount+","region":"美国","types":["电影","电视剧","综艺","少儿","体育","电视直播"],"access":"订阅","url":"https://www.paramountplus.com/","description":"Paramount电影、CBS节目、Nickelodeon和体育。","availability":"需要账号；地区内容不同"},
+  {"id":"tubi","name":"Tubi","region":"美国","types":["电影","电视剧","纪录片","动漫","电视直播"],"access":"免费","url":"https://tubitv.com/","description":"广告支持的电影、剧集和直播频道。","availability":"免费含广告；可用地区有限"},
+  {"id":"pluto-tv","name":"Pluto TV","region":"美国","types":["电影","电视剧","综艺","纪录片","电视直播"],"access":"免费","url":"https://pluto.tv/","description":"广告支持的主题直播频道和点播内容。","availability":"免费含广告；频道按地区不同"},
+  {"id":"roku-channel","name":"The Roku Channel","region":"美国","types":["电影","电视剧","综艺","电视直播"],"access":"部分免费","url":"https://therokuchannel.roku.com/","description":"免费影视、Roku原创和直播频道。","availability":"部分地区可用；含广告及付费频道"},
+
+  {"id":"bbc-iplayer","name":"BBC iPlayer","region":"英国","types":["电影","电视剧","综艺","纪录片","少儿","电视直播"],"access":"注册免费","url":"https://www.bbc.co.uk/iplayer","description":"BBC电视直播、回看、剧集、纪录片和综艺。","availability":"通常仅英国；需要BBC账号与当地许可条件"},
+  {"id":"itvx","name":"ITVX","region":"英国","types":["电影","电视剧","综艺","电视直播"],"access":"部分免费","url":"https://www.itv.com/","description":"ITV直播、回看、英国剧集与娱乐节目。","availability":"免费含广告与Premium并存；主要限英国"},
+  {"id":"channel4","name":"Channel 4","region":"英国","types":["电影","电视剧","综艺","纪录片","电视直播"],"access":"注册免费","url":"https://www.channel4.com/","description":"英国剧集、真人秀、喜剧、纪录片和直播。","availability":"需要账号；主要限英国"},
+  {"id":"my5","name":"My5","region":"英国","types":["电影","电视剧","综艺","纪录片","电视直播"],"access":"注册免费","url":"https://www.channel5.com/","description":"Channel 5直播、回看、剧集和娱乐节目。","availability":"免费含广告；主要限英国"},
+  {"id":"britbox","name":"BritBox","region":"英国","types":["电影","电视剧","综艺","纪录片"],"access":"订阅","url":"https://www.britbox.com/","description":"英国经典与现代剧集、喜剧和影视档案。","availability":"服务范围及内容按地区变化"},
+
+  {"id":"cbc-gem","name":"CBC Gem","region":"加拿大","types":["电影","电视剧","综艺","纪录片","少儿","电视直播"],"access":"部分免费","url":"https://gem.cbc.ca/","description":"加拿大公共电视直播、回看、原创和本土影视。","availability":"免费与Premium并存；部分内容仅加拿大"},
+  {"id":"global-tv","name":"Global TV","region":"加拿大","types":["电视剧","综艺","电视直播"],"access":"注册免费","url":"https://www.globaltv.com/","description":"Global频道剧集、真人秀、直播和完整节目。","availability":"部分节目需电视服务商账号；主要限加拿大"},
+  {"id":"ctv","name":"CTV","region":"加拿大","types":["电影","电视剧","综艺","电视直播"],"access":"部分免费","url":"https://www.ctv.ca/","description":"加拿大剧集、娱乐节目、直播和回看。","availability":"部分内容需电视服务商登录"},
+  {"id":"crave","name":"Crave","region":"加拿大","types":["电影","电视剧","纪录片"],"access":"订阅","url":"https://www.crave.ca/","description":"加拿大影视订阅平台，提供电影、剧集和Premium内容。","availability":"需要账号；主要面向加拿大"},
+
+  {"id":"ard-mediathek","name":"ARD Mediathek","region":"德国","types":["电影","电视剧","综艺","纪录片","少儿","电视直播"],"access":"免费","url":"https://www.ardmediathek.de/","description":"德国公共电视的电影、剧集、综艺、纪录片和直播。","availability":"多数内容免费；部分受地区版权限制"},
+  {"id":"zdf","name":"ZDF","region":"德国","types":["电影","电视剧","综艺","纪录片","少儿","电视直播"],"access":"免费","url":"https://www.zdf.de/","description":"德国公共电视直播、回看、电影、剧集和娱乐节目。","availability":"多数内容免费；部分地区限制"},
+  {"id":"arte","name":"ARTE","region":"德国/法国","types":["电影","纪录片","音乐","综艺","电视直播"],"access":"免费","url":"https://www.arte.tv/","description":"欧洲文化频道，提供电影、纪录片、音乐会和文化节目。","availability":"大量免费内容；部分版权限区"},
+  {"id":"joyn","name":"Joyn","region":"德国","types":["电影","电视剧","综艺","电视直播"],"access":"部分免费","url":"https://www.joyn.de/","description":"德国商业频道直播、回看、剧集和真人秀。","availability":"免费与Plus+订阅并存；主要限德国"},
+  {"id":"rtl-plus","name":"RTL+","region":"德国","types":["电影","电视剧","综艺","电视直播","音乐"],"access":"订阅","url":"https://plus.rtl.de/","description":"RTL剧集、真人秀、直播、音乐和播客。","availability":"需要账号；部分内容付费"},
+
+  {"id":"france-tv","name":"France.tv","region":"法国","types":["电影","电视剧","综艺","纪录片","少儿","电视直播"],"access":"注册免费","url":"https://www.france.tv/","description":"法国公共电视直播、回看、影视与文化节目。","availability":"多数免费；部分地区限制"},
+  {"id":"tf1-plus","name":"TF1+","region":"法国","types":["电影","电视剧","综艺","电视直播"],"access":"部分免费","url":"https://www.tf1.fr/","description":"法国商业电视剧集、真人秀、娱乐节目和直播。","availability":"免费含广告与付费选项；主要限法国"},
+  {"id":"m6-plus","name":"M6+","region":"法国","types":["电影","电视剧","综艺","电视直播"],"access":"部分免费","url":"https://www.m6.fr/","description":"M6剧集、真人秀、综艺和电视回看。","availability":"部分内容需账号或限区"},
+
+  {"id":"mewatch","name":"meWATCH","region":"新加坡","types":["电影","电视剧","综艺","少儿","体育","电视直播"],"access":"部分免费","url":"https://www.mewatch.sg/","description":"Mediacorp本地剧、综艺、体育、新闻和频道直播。","availability":"免费与Premium并存；大量内容限新加坡"},
+
+  {"id":"tver","name":"TVer","region":"日本","types":["电视剧","综艺","动漫","纪录片","体育"],"access":"免费","url":"https://tver.jp/","description":"日本主要电视台节目免费回看、综艺、剧集和动漫。","availability":"免费含广告；主要限日本，回看期限有限"},
+  {"id":"abema","name":"ABEMA","region":"日本","types":["电视剧","综艺","动漫","音乐","体育","电视直播"],"access":"部分免费","url":"https://abema.tv/","description":"日本网络电视、动漫、综艺、体育和主题频道。","availability":"免费与Premium并存；部分内容限日本"},
+  {"id":"nhk-world-ondemand","name":"NHK WORLD-JAPAN On Demand","region":"日本","types":["纪录片","综艺","文化","少儿"],"access":"免费","url":"https://www3.nhk.or.jp/nhkworld/en/ondemand/video/","description":"面向海外的日本文化、纪录片、旅行和生活节目。","availability":"公开内容为主；英语节目较多"},
+
+  {"id":"kbs-world","name":"KBS WORLD TV","region":"韩国","types":["电视剧","综艺","音乐","纪录片","电视直播"],"access":"免费","url":"https://kbsworld.kbs.co.kr/","description":"韩剧、K-Pop、综艺、文化节目与海外频道。","availability":"官网与官方频道提供部分直播和点播"},
+  {"id":"tving","name":"TVING","region":"韩国","types":["电影","电视剧","综艺","动漫","体育","电视直播"],"access":"订阅","url":"https://www.tving.com/","description":"韩国CJ ENM系剧集、综艺、电影和体育平台。","availability":"需要账号；主要限韩国"},
+  {"id":"wavve","name":"Wavve","region":"韩国","types":["电影","电视剧","综艺","纪录片","电视直播"],"access":"订阅","url":"https://www.wavve.com/","description":"韩国电视台节目、剧集、综艺和电影点播。","availability":"需要账号；主要限韩国"},
+  {"id":"sbs-play","name":"SBS Play","region":"韩国","types":["电视剧","综艺","音乐","电视直播"],"access":"部分免费","url":"https://play.sbs.co.kr/","description":"SBS韩剧、综艺、音乐节目和直播入口。","availability":"部分免费；登录、字幕和地区限制因节目而异"},
+  {"id":"mbc","name":"MBC","region":"韩国","types":["电视剧","综艺","音乐","纪录片","电视直播"],"access":"部分免费","url":"https://www.imbc.com/","description":"MBC韩剧、综艺、音乐与电视节目入口。","availability":"部分内容需登录或限韩国"},
+
+  {"id":"trueid","name":"TrueID","region":"泰国","types":["电影","电视剧","综艺","体育","电视直播"],"access":"部分免费","url":"https://trueidtv.trueid.net/","description":"泰国影视、综艺、体育和直播平台。","availability":"免费与TrueID+并存；大量内容限泰国"},
+  {"id":"ch3plus","name":"CH3Plus","region":"泰国","types":["电视剧","综艺","电视直播"],"access":"部分免费","url":"https://ch3plus.com/","description":"泰国Channel 3电视剧、综艺、直播与回看。","availability":"免费与Premium并存；字幕和地区因节目而异"},
+  {"id":"oned","name":"oneD","region":"泰国","types":["电视剧","综艺","电视直播"],"access":"部分免费","url":"https://www.oned.net/","description":"泰国One31剧集、综艺和原创内容。","availability":"部分免费；登录和地区限制因节目而异"},
+  {"id":"gmmtv","name":"GMMTV","region":"泰国","types":["电视剧","综艺","音乐"],"access":"免费","url":"https://www.gmm-tv.com/contents/","description":"泰国青春剧、综艺、音乐和艺人节目官方入口。","availability":"官网及官方YouTube提供内容；地区授权不同"},
+  {"id":"thai-pbs-program","name":"Thai PBS Programs","region":"泰国","types":["电视剧","综艺","纪录片","少儿","电视直播"],"access":"免费","url":"https://www.thaipbs.or.th/program","description":"泰国公共电视节目、纪录片、少儿内容和回看。","availability":"公开内容为主；语言以泰语为主"},
+
+  {"id":"iqiyi-international","name":"iQIYI International","region":"中国","types":["电影","电视剧","综艺","动漫"],"access":"部分免费","url":"https://www.iq.com/","description":"中国剧集、综艺、电影和动漫国际版。","availability":"免费与VIP并存；地区片库和字幕不同"},
+  {"id":"wetv","name":"WeTV","region":"中国","types":["电影","电视剧","综艺","动漫"],"access":"部分免费","url":"https://wetv.vip/","description":"腾讯视频国际版，提供中国及亚洲剧集和综艺。","availability":"免费与VIP并存；地区片库不同"},
+  {"id":"youku-international","name":"YOUKU","region":"中国","types":["电影","电视剧","综艺","动漫"],"access":"部分免费","url":"https://www.youku.tv/","description":"优酷国际内容入口，中国剧集、综艺和动漫。","availability":"免费与VIP并存；地区授权不同"},
+  {"id":"mangotv","name":"MangoTV","region":"中国","types":["电视剧","综艺","音乐"],"access":"部分免费","url":"https://w.mgtv.com/","description":"湖南广电剧集、真人秀、综艺和音乐节目。","availability":"免费与会员并存；字幕和地区因节目而异"},
+  {"id":"bilibili","name":"哔哩哔哩","region":"中国","types":["电影","电视剧","综艺","纪录片","动漫","音乐","电视直播"],"access":"部分免费","url":"https://www.bilibili.com/","description":"动漫、纪录片、影视、综艺、音乐和创作者视频。","availability":"免费、会员与付费内容并存"},
+
+  {"id":"viu","name":"Viu","region":"中国香港/亚洲","types":["电影","电视剧","综艺"],"access":"部分免费","url":"https://www.viu.com/","description":"亚洲剧集、韩剧、综艺及本地原创。","availability":"免费与Premium并存；各地区片库不同"},
+  {"id":"mytv-super","name":"myTV SUPER","region":"中国香港","types":["电影","电视剧","综艺","电视直播"],"access":"订阅","url":"https://www.mytvsuper.com/","description":"TVB频道、港剧、综艺和点播内容。","availability":"需要账号；服务和节目受地区限制"},
+  {"id":"pts-plus","name":"PTS+","region":"中国台湾","types":["电影","电视剧","综艺","纪录片","少儿"],"access":"免费","url":"https://www.ptsplus.tv/","description":"台湾公共电视剧集、纪录片、文化和少儿节目。","availability":"大量免费内容；部分需账号或限区"},
+
+  {"id":"abc-iview","name":"ABC iview","region":"澳大利亚","types":["电影","电视剧","综艺","纪录片","少儿","电视直播"],"access":"注册免费","url":"https://iview.abc.net.au/","description":"澳大利亚公共电视直播、回看、剧集和纪录片。","availability":"主要限澳大利亚；需免费账号"},
+  {"id":"sbs-ondemand","name":"SBS On Demand","region":"澳大利亚","types":["电影","电视剧","综艺","纪录片","电视直播"],"access":"注册免费","url":"https://www.sbs.com.au/ondemand","description":"多语言电影、国际剧集、纪录片和澳洲电视直播。","availability":"免费含广告；主要限澳大利亚"},
+  {"id":"7plus","name":"7plus","region":"澳大利亚","types":["电影","电视剧","综艺","体育","电视直播"],"access":"注册免费","url":"https://7plus.com.au/","description":"澳洲Seven频道直播、回看、综艺和体育。","availability":"免费含广告；主要限澳大利亚"},
+  {"id":"9now","name":"9Now","region":"澳大利亚","types":["电视剧","综艺","体育","电视直播"],"access":"注册免费","url":"https://www.9now.com.au/","description":"澳洲Nine频道直播、回看、真人秀和体育。","availability":"免费含广告；主要限澳大利亚"},
+
+  {"id":"jiohotstar","name":"JioHotstar","region":"印度","types":["电影","电视剧","综艺","少儿","体育","电视直播"],"access":"部分免费","url":"https://www.hotstar.com/in","description":"印度电影、剧集、电视节目、体育和国际内容。","availability":"免费与订阅并存；主要限印度"},
+  {"id":"zee5","name":"ZEE5","region":"印度","types":["电影","电视剧","综艺","音乐"],"access":"订阅","url":"https://www.zee5.com/","description":"印度多语言电影、剧集和电视节目。","availability":"需要账号；地区片库不同"},
+  {"id":"sonyliv","name":"SonyLIV","region":"印度","types":["电影","电视剧","综艺","体育","电视直播"],"access":"订阅","url":"https://www.sonyliv.com/","description":"印度影视、Sony电视节目和体育直播。","availability":"需要账号；主要限印度"}
+]

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#071422">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="全球视频">
+  <meta name="description" content="无需电脑和Ollama的iPhone全球新闻与娱乐视频导航">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./icon.svg">
+  <link rel="stylesheet" href="./styles.css">
+  <title>全球视频智能体 · iPhone版</title>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="brand-row">
+        <div class="brand-mark">G</div>
+        <div class="brand-copy"><small>GLOBAL VIDEO POCKET</small><strong id="pageTitle">首页</strong></div>
+        <button id="installButton" class="install-button" hidden>安装</button>
+      </div>
+      <label class="global-search"><span>⌕</span><input id="globalSearch" type="search" placeholder="搜索媒体、平台、国家或类型" autocomplete="off"></label>
+    </header>
+
+    <main>
+      <section id="homeView" class="view active">
+        <div class="hero-card">
+          <span class="eyebrow">IPHONE INDEPENDENT EDITION</span>
+          <h1>全球视频，装进口袋</h1>
+          <p>不需要电脑开机，也不需要 Ollama。新闻、财经、电影、电视剧与综艺官方入口随时可用。</p>
+          <div class="hero-actions"><button class="primary" data-goto="entertainment">浏览娱乐</button><button class="ghost" data-goto="news">查看新闻</button></div>
+        </div>
+
+        <div class="stats-grid">
+          <div><strong id="newsCount">—</strong><span>新闻与财经源</span></div>
+          <div><strong id="entertainmentCount">—</strong><span>娱乐平台</span></div>
+          <div><strong id="favoriteCount">0</strong><span>我的收藏</span></div>
+        </div>
+
+        <section class="section-block">
+          <div class="section-title"><div><span class="eyebrow">QUICK START</span><h2>快速进入</h2></div></div>
+          <div class="quick-grid">
+            <button data-quick-view="news" data-quick-type="财经"><span>↗</span><b>美国财经</b><small>市场、交易所与公司</small></button>
+            <button data-quick-view="entertainment" data-quick-type="电影"><span>▶</span><b>电影</b><small>全球官方平台</small></button>
+            <button data-quick-view="entertainment" data-quick-type="综艺"><span>✦</span><b>综艺</b><small>各国真人秀与节目</small></button>
+            <button data-goto="picker"><span>◎</span><b>随心选</b><small>手机本地智能匹配</small></button>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <div class="section-title"><div><span class="eyebrow">RECENT</span><h2>最近打开</h2></div><button class="text-button" id="clearRecent">清除</button></div>
+          <div id="recentList" class="compact-list empty-state">还没有浏览记录。</div>
+        </section>
+
+        <section class="install-card">
+          <span>添加到 iPhone 主屏幕</span>
+          <p>用 Safari 打开本网站，点击“共享” →“添加到主屏幕”。之后可以像 App 一样使用。</p>
+          <button class="ghost" data-goto="help">查看安装说明</button>
+        </section>
+      </section>
+
+      <section id="searchView" class="view">
+        <div class="page-intro"><span class="eyebrow">SEARCH ALL SOURCES</span><h1>全局搜索</h1><p id="searchSummary">输入媒体、平台、国家或类型。</p></div>
+        <div id="searchGrid" class="card-grid empty-state">在顶部搜索框输入关键词。</div>
+      </section>
+
+      <section id="newsView" class="view">
+        <div class="page-intro"><span class="eyebrow">NEWS & MARKETS</span><h1>新闻与财经</h1><p>官方媒体、交易所、政策机构与公司原始来源。</p></div>
+        <div class="filter-panel">
+          <div><span>类型</span><div id="newsTypeFilters" class="chips"></div></div>
+          <div><span>地区</span><div id="newsRegionFilters" class="chips"></div></div>
+        </div>
+        <div class="result-line"><b id="newsResultCount">0</b><span>个匹配来源</span><button id="clearNewsFilters" class="text-button">清除筛选</button></div>
+        <div id="newsGrid" class="card-grid"></div>
+      </section>
+
+      <section id="entertainmentView" class="view">
+        <div class="page-intro"><span class="eyebrow">MOVIES · TV · SHOWS</span><h1>娱乐视频</h1><p>只收录官方平台，并标记免费、注册免费、部分免费与订阅。</p></div>
+        <div class="filter-panel">
+          <div><span>类型</span><div id="entTypeFilters" class="chips"></div></div>
+          <div><span>地区</span><div id="entRegionFilters" class="chips"></div></div>
+          <div><span>方式</span><div id="entAccessFilters" class="chips"></div></div>
+        </div>
+        <div class="result-line"><b id="entResultCount">0</b><span>个匹配平台</span><button id="clearEntFilters" class="text-button">清除筛选</button></div>
+        <div id="entertainmentGrid" class="card-grid"></div>
+      </section>
+
+      <section id="pickerView" class="view">
+        <div class="page-intro"><span class="eyebrow">ON-DEVICE MATCHER</span><h1>今天看什么</h1><p>不使用 AI 或云端服务，完全在手机上根据条件匹配官方平台。</p></div>
+        <form id="pickerForm" class="picker-card">
+          <label>想看的类型<select id="pickerType"><option value="">都可以</option></select></label>
+          <label>偏好的地区<select id="pickerRegion"><option value="">全球都可以</option></select></label>
+          <label>观看方式<select id="pickerAccess"><option value="">不限</option></select></label>
+          <label>现在的心情<select id="pickerMood"><option value="relax">轻松放松</option><option value="learn">想了解新事物</option><option value="family">和家人一起</option><option value="energy">想看热闹一点</option></select></label>
+          <button class="primary" type="submit">帮我选三个</button>
+        </form>
+        <div id="pickerResult" class="picker-result empty-state">选择条件后，手机会从本地目录中匹配三个平台。</div>
+      </section>
+
+      <section id="favoritesView" class="view">
+        <div class="page-intro"><span class="eyebrow">SAVED ON IPHONE</span><h1>我的收藏</h1><p>收藏保存在当前 iPhone 浏览器中，不上传账号或云端。</p></div>
+        <div id="favoritesGrid" class="card-grid empty-state">还没有收藏。点击来源卡片右上角的星标即可添加。</div>
+      </section>
+
+      <section id="helpView" class="view">
+        <div class="page-intro"><span class="eyebrow">INSTALL & PRIVACY</span><h1>安装与说明</h1></div>
+        <div class="guide-card"><b>1</b><div><h2>使用 Safari 打开</h2><p>必须打开已经发布的 HTTPS 网站地址，不能直接在“文件”App 中打开 ZIP。</p></div></div>
+        <div class="guide-card"><b>2</b><div><h2>点击共享</h2><p>点击 Safari 底部方框向上的“共享”按钮，向下找到“添加到主屏幕”。</p></div></div>
+        <div class="guide-card"><b>3</b><div><h2>确认添加</h2><p>名称可以保留“全球视频”，点击右上角“添加”，桌面就会出现图标。</p></div></div>
+        <div class="notice-card"><h2>独立运行范围</h2><p>安装后无需电脑和 Ollama。目录与界面可离线打开；播放视频、登录平台以及首次缓存仍需网络。</p></div>
+        <div class="notice-card"><h2>版权与地区</h2><p>本应用只提供官方入口，不下载或转播节目，不提供会员或地区限制绕过。具体片库、价格、字幕和可用地区以平台当前页面为准。</p></div>
+        <div class="notice-card"><h2>数据与隐私</h2><p>搜索、收藏和最近记录保存在 iPhone 本地浏览器。清除 Safari 网站数据后，这些记录会被删除。</p></div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="主导航">
+      <button class="active" data-view="home"><span>⌂</span><b>首页</b></button>
+      <button data-view="news"><span>◉</span><b>新闻</b></button>
+      <button data-view="entertainment"><span>▶</span><b>娱乐</b></button>
+      <button data-view="picker"><span>◎</span><b>随心选</b></button>
+      <button data-view="favorites"><span>★</span><b>收藏</b></button>
+    </nav>
+  </div>
+  <div id="toast" class="toast"></div>
+  <script src="./app.js"></script>
+</body>
+</html>

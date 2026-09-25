@@ -1,0 +1,15 @@
+{
+  "name": "全球新闻娱乐视频智能体",
+  "short_name": "全球视频",
+  "description": "无需电脑和Ollama的iPhone全球新闻与娱乐视频导航",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#071422",
+  "theme_color": "#071422",
+  "orientation": "portrait-primary",
+  "icons": [
+    {"src": "./icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable"}
+  ]
+}
