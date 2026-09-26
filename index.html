@@ -40,6 +40,13 @@
           <div><strong id="favoriteCount">0</strong><span>我的收藏</span></div>
         </div>
 
+        <button class="domestic-entry" data-goto="domestic">
+          <span class="domestic-entry-icon">CN</span>
+          <span class="domestic-entry-copy"><small>MAINLAND DIRECT</small><b>国内收看</b><em>新闻、财经、电影、电视剧、综艺与电视节目</em></span>
+          <span class="domestic-entry-count"><strong id="domesticCount">—</strong><small>个来源</small></span>
+          <span class="domestic-entry-arrow">›</span>
+        </button>
+
         <section class="section-block">
           <div class="section-title"><div><span class="eyebrow">QUICK START</span><h2>快速进入</h2></div></div>
           <div class="quick-grid">
@@ -65,6 +72,14 @@
       <section id="searchView" class="view">
         <div class="page-intro"><span class="eyebrow">SEARCH ALL SOURCES</span><h1>全局搜索</h1><p id="searchSummary">输入媒体、平台、国家或类型。</p></div>
         <div id="searchGrid" class="card-grid empty-state">在顶部搜索框输入关键词。</div>
+      </section>
+
+      <section id="domesticView" class="view">
+        <div class="page-intro"><span class="eyebrow">MAINLAND DIRECT</span><h1>国内收看</h1><p>集中显示中国大陆网络通常可直接打开的官方来源，无需特殊网络。实际播放、会员和版权范围以平台当前页面为准。</p></div>
+        <div class="domestic-section-head"><div><span>NEWS & MARKETS</span><h2>新闻与财经</h2></div><b id="domesticNewsCount">0</b></div>
+        <div id="domesticNewsGrid" class="card-grid"></div>
+        <div class="domestic-section-head"><div><span>MOVIES · TV · SHOWS</span><h2>影视娱乐</h2></div><b id="domesticEntCount">0</b></div>
+        <div id="domesticEntGrid" class="card-grid"></div>
       </section>
 
       <section id="newsView" class="view">

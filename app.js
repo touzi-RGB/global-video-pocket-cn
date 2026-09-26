@@ -5,7 +5,7 @@ const NEWS_REGION_ORDER=["美国","英国","加拿大","德国","新加坡","日
 const ENT_TYPE_ORDER=["电影","电视剧","综艺","动漫","纪录片","少儿","音乐","电视直播","体育","文化"];
 const ENT_REGION_ORDER=["全球","美国","英国","加拿大","德国","德国/法国","法国","新加坡","日本","韩国","泰国","中国","中国香港/亚洲","中国香港","中国台湾","澳大利亚","印度"];
 const ENT_ACCESS_ORDER=["免费","注册免费","部分免费","订阅"];
-const TITLES={home:"首页",search:"全局搜索",news:"新闻与财经",entertainment:"娱乐视频",picker:"今天看什么",favorites:"我的收藏",help:"安装与说明"};
+const TITLES={home:"首页",search:"全局搜索",domestic:"国内收看",news:"新闻与财经",entertainment:"娱乐视频",picker:"今天看什么",favorites:"我的收藏",help:"安装与说明"};
 const state={news:[],entertainment:[],view:"home",previousView:"home",newsType:"",newsRegion:"",entType:"",entRegion:"",entAccess:"",favorites:new Set(),recent:[]};
 const $=id=>document.getElementById(id);
 
@@ -29,6 +29,7 @@ function setView(name,{preserveSearch=false}={}){
   if(!preserveSearch&&name!=="search") $("globalSearch").value="";
   if(name==="news") renderNews();
   if(name==="entertainment") renderEntertainment();
+  if(name==="domestic") renderDomestic();
   if(name==="favorites") renderFavorites();
   if(name==="home") renderHome();
   window.scrollTo({top:0,behavior:"instant"});
@@ -51,9 +52,10 @@ function renderFilters(){
 function sourceCard(item){
   const favorite=state.favorites.has(item._key);
   const isEnt=item.sourceKind==="entertainment";
+  const domesticTag=item.domestic?`<span class="tag domestic">国内收看</span>`:"";
   const tags=isEnt
-    ? `<span class="tag region">${escapeHtml(item.region)}</span><span class="tag access">${escapeHtml(item.access)}</span>${item.types.slice(0,3).map(v=>`<span class="tag">${escapeHtml(v)}</span>`).join("")}`
-    : `<span class="tag region">${escapeHtml(item.region)}</span><span class="tag">${escapeHtml(item.type)}</span><span class="tag">${escapeHtml(item.kind||item.category)}</span>`;
+    ? `${domesticTag}<span class="tag region">${escapeHtml(item.region)}</span><span class="tag access">${escapeHtml(item.access)}</span>${item.types.slice(0,3).map(v=>`<span class="tag">${escapeHtml(v)}</span>`).join("")}`
+    : `${domesticTag}<span class="tag region">${escapeHtml(item.region)}</span><span class="tag">${escapeHtml(item.type)}</span><span class="tag">${escapeHtml(item.kind||item.category)}</span>`;
   const availability=isEnt?`<div class="availability">${escapeHtml(item.availability)}</div>`:"";
   return `<article class="source-card" data-key="${escapeHtml(item._key)}">
     <div class="card-head"><div class="source-icon">${escapeHtml(initials(item.name))}</div><div class="card-name"><h3>${escapeHtml(item.name)}</h3><div class="card-meta">${tags}</div></div><button class="favorite-button${favorite?' active':''}" data-favorite="${escapeHtml(item._key)}" aria-label="收藏">★</button></div>
@@ -77,6 +79,14 @@ function renderEntertainment(){
   const items=state.entertainment.filter(i=>(!state.entType||i.types.includes(state.entType))&&(!state.entRegion||i.region===state.entRegion)&&(!state.entAccess||i.access===state.entAccess));
   $("entResultCount").textContent=items.length;renderCards($("entertainmentGrid"),items,"没有匹配的娱乐平台。");
 }
+function renderDomestic(){
+  const news=state.news.filter(item=>item.domestic);
+  const entertainment=state.entertainment.filter(item=>item.domestic);
+  $("domesticNewsCount").textContent=news.length;
+  $("domesticEntCount").textContent=entertainment.length;
+  renderCards($("domesticNewsGrid"),news,"暂时没有已确认的国内新闻与财经来源。");
+  renderCards($("domesticEntGrid"),entertainment,"暂时没有已确认的国内娱乐平台。");
+}
 function renderSearch(){
   const query=$("globalSearch").value.trim().toLowerCase();
   if(!query){setView(state.previousView||"home");return}
@@ -89,12 +99,12 @@ function renderSearch(){
   renderCards($("searchGrid"),items,"没有匹配结果，请尝试国家、平台或内容类型。");
 }
 
-function toggleFavorite(key){state.favorites.has(key)?state.favorites.delete(key):state.favorites.add(key);saveLocal();updateCounts();if(state.view==="favorites")renderFavorites();else if(state.view==="news")renderNews();else if(state.view==="entertainment")renderEntertainment();else if(state.view==="search")renderSearch();toast(state.favorites.has(key)?"已加入收藏":"已取消收藏")}
+function toggleFavorite(key){state.favorites.has(key)?state.favorites.delete(key):state.favorites.add(key);saveLocal();updateCounts();if(state.view==="favorites")renderFavorites();else if(state.view==="news")renderNews();else if(state.view==="entertainment")renderEntertainment();else if(state.view==="domestic")renderDomestic();else if(state.view==="search")renderSearch();toast(state.favorites.has(key)?"已加入收藏":"已取消收藏")}
 function recordRecent(key){const item=findSource(key);if(!item)return;state.recent=[key,...state.recent.filter(v=>v!==key)].slice(0,12);saveLocal();renderHome()}
 async function shareSource(key){const item=findSource(key);if(!item)return;try{if(navigator.share)await navigator.share({title:item.name,text:item.description,url:item.url});else{await navigator.clipboard.writeText(item.url);toast("链接已复制")}}catch(error){if(error.name!=="AbortError")toast("暂时无法分享")}}
 
 function renderHome(){
-  $("newsCount").textContent=state.news.length;$("entertainmentCount").textContent=state.entertainment.length;updateCounts();
+  $("newsCount").textContent=state.news.length;$("entertainmentCount").textContent=state.entertainment.length;$("domesticCount").textContent=allSources().filter(item=>item.domestic).length;updateCounts();
   const items=state.recent.map(findSource).filter(Boolean).slice(0,6);const list=$("recentList");
   list.classList.toggle("empty-state",!items.length);list.innerHTML=items.length?items.map(item=>`<a class="compact-item" data-open="${escapeHtml(item._key)}" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer"><span>${escapeHtml(initials(item.name))}</span><div><b>${escapeHtml(item.name)}</b><small>${escapeHtml(item.region)} · ${escapeHtml(item.sourceKind==="news"?item.type:item.types.slice(0,2).join("/"))}</small></div></a>`).join(""):"还没有浏览记录。";
   list.querySelectorAll("[data-open]").forEach(link=>link.addEventListener("click",()=>recordRecent(link.dataset.open)));
@@ -131,7 +141,7 @@ async function init(){
     const [newsResponse,entResponse]=await Promise.all([fetch("./sources.json"),fetch("./entertainment_sources.json")]);
     if(!newsResponse.ok||!entResponse.ok)throw new Error("目录文件读取失败");
     state.news=normalizeNews(await newsResponse.json());state.entertainment=normalizeEntertainment(await entResponse.json());
-    renderFilters();populatePicker();renderHome();renderNews();renderEntertainment();
+    renderFilters();populatePicker();renderHome();renderNews();renderEntertainment();renderDomestic();
   }catch(error){document.querySelector("main").innerHTML=`<div class="notice-card"><h2>目录读取失败</h2><p>${escapeHtml(error.message)}。请通过 HTTPS 网站访问，不要直接双击本地 HTML。</p></div>`}
   if("serviceWorker" in navigator)navigator.serviceWorker.register("./sw.js").catch(()=>{});
 }

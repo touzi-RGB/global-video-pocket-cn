@@ -79,5 +79,7 @@
 
   {"id":"cfa","name":"CFA Institute","category":"投资教育","url":"https://www.cfainstitute.org/insights/videos","description":"投资分析、伦理、资产配置与专业教育。","access":"部分公开","kind":"视频/教育"},
   {"id":"schwab","name":"Schwab Network","category":"投资教育","url":"https://schwabnetwork.com/","description":"美股市场节目、交易教育和嘉宾观点。","access":"需实测","kind":"直播/视频"},
-  {"id":"ibkr","name":"Interactive Brokers Webinars","category":"投资教育","url":"https://www.interactivebrokers.com/campus/webinars/","description":"交易工具、期权、市场结构和投资教育。","access":"公开课程为主","kind":"视频/教育"}
+  {"id":"ibkr","name":"Interactive Brokers Webinars","category":"投资教育","url":"https://www.interactivebrokers.com/campus/webinars/","description":"交易工具、期权、市场结构和投资教育。","access":"公开课程为主","kind":"视频/教育"},
+  {"id":"cctv-news-cn","name":"央视新闻","category":"国际新闻","region":"中国","url":"https://news.cctv.com/","description":"央视新闻、国内外时事、财经与重点节目官方入口。","access":"官方公开","kind":"新闻/视频/直播","domestic":true},
+  {"id":"yicai-video","name":"第一财经视听","category":"财经市场","region":"中国","url":"https://www.yicai.com/video/","description":"市场、公司、产业与宏观经济视频节目和财经直播。","access":"公开为主","kind":"财经/视频","domestic":true}
 ]
